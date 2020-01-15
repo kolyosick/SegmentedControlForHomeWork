@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import NewsAPIClient
+import GithubAPIClient
 
 struct ButtonPressStyle: ButtonStyle {
 
