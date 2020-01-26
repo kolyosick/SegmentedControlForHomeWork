@@ -7,7 +7,8 @@
 //
 
 import SwiftUI
-import GithubAPIClient
+import SwiftUICharts
+import NewsAPIClient
 
 struct ButtonPressStyle: ButtonStyle {
 
@@ -22,28 +23,10 @@ struct ButtonPressStyle: ButtonStyle {
 }
 
 struct PieView: View {
-    
-    @State private var showChart = false
+	@EnvironmentObject var model: NewsModel
     
     var body: some View {
-        VStack(spacing: 10) {
-            
-            Button(action: {
-                withAnimation {
-                    self.showChart.toggle()
-                }
-            }) {
-              Text("Custom Button")
-            }
-            
-            .buttonStyle(ButtonPressStyle())
-            
-            if showChart {
-                Text("Pie Chart")
-                .transition(.move(edge: .bottom))
-            }
-        }
-        .padding(.top, 10)
+        BarChartView(data: ChartData(values: model.articleCount), title: "Article count", legend: "From 01.01.2020")
     }
     
 }
@@ -52,7 +35,7 @@ struct ContentView: View {
     
     @State private var selection = 0
     
-    @State private var endpoints = ["Pie", "Bar", "Line"]
+    @State private var endpoints = ["Bar", "Pie", "Line"]
 
     var body: some View {
         VStack {
@@ -64,6 +47,7 @@ struct ContentView: View {
             
             if self.selection == 0 {
                 PieView()
+				.environmentObject(NewsModel())
             } else if self.selection == 1 {
                 Text("Bar").transition(.scale)
             } else if self.selection == 2 {

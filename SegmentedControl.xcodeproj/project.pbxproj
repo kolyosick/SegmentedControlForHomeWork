@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4EDB1023CF7FB500BEEAC3 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4EDB0F23CF7FB500BEEAC3 /* NewsModel.swift */; };
+		8C4EDB1323CF811B00BEEAC3 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4EDB1223CF811B00BEEAC3 /* NewsService.swift */; };
+		8CB1AB9423DB3E7600E0973B /* NewsServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1AB9323DB3E7600E0973B /* NewsServiceInput.swift */; };
+		8CB1AB9723DB411100E0973B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1AB9623DB411100E0973B /* ServiceLocator.swift */; };
+		8CB1AB9A23DE012600E0973B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8CB1AB9923DE012600E0973B /* SwiftUICharts */; };
+		8CB1AB9C23DE3B6100E0973B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1AB9B23DE3B6000E0973B /* Constants.swift */; };
 		8CC9F50E23CF01C2005DEF4F /* GithubAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 8CC9F50D23CF01C2005DEF4F /* GithubAPIClient */; };
+		8CC9F51323CF4E0E005DEF4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9F51223CF4E0E005DEF4F /* ActivityIndicator.swift */; };
 		8CFD07BD23CEE78500770F6E /* NewsAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFD07BC23CEE78500770F6E /* NewsAPIClient */; };
 		FA173AC123AB7F8500F6E73C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA173AC023AB7F8500F6E73C /* AppDelegate.swift */; };
 		FA173AC323AB7F8500F6E73C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA173AC223AB7F8500F6E73C /* SceneDelegate.swift */; };
@@ -19,7 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C4EDB0F23CF7FB500BEEAC3 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		8C4EDB1223CF811B00BEEAC3 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		8CB1AB9323DB3E7600E0973B /* NewsServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServiceInput.swift; sourceTree = "<group>"; };
+		8CB1AB9623DB411100E0973B /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		8CB1AB9B23DE3B6000E0973B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8CC9F50C23CF0131005DEF4F /* GithubAPIClient */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubAPIClient; sourceTree = SOURCE_ROOT; };
+		8CC9F51223CF4E0E005DEF4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		8CFD07BA23CEE75900770F6E /* NewsAPIClient */ = {isa = PBXFileReference; lastKnownFileType = text; path = NewsAPIClient; sourceTree = SOURCE_ROOT; };
 		FA173ABD23AB7F8500F6E73C /* SegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA173AC023AB7F8500F6E73C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB1AB9A23DE012600E0973B /* SwiftUICharts in Frameworks */,
 				8CFD07BD23CEE78500770F6E /* NewsAPIClient in Frameworks */,
 				8CC9F50E23CF01C2005DEF4F /* GithubAPIClient in Frameworks */,
 			);
@@ -45,6 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C4EDB1123CF810700BEEAC3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C4EDB1223CF811B00BEEAC3 /* NewsService.swift */,
+				8CB1AB9323DB3E7600E0973B /* NewsServiceInput.swift */,
+				8CB1AB9623DB411100E0973B /* ServiceLocator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8CB1AB9523DB3F5D00E0973B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8C4EDB0F23CF7FB500BEEAC3 /* NewsModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8CC9F50F23CF4BC9005DEF4F /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8CC9F51223CF4E0E005DEF4F /* ActivityIndicator.swift */,
+			);
+			path = UIKit;
+			sourceTree = SOURCE_ROOT;
+		};
 		8CFD07BB23CEE78500770F6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,12 +112,16 @@
 		FA173ABF23AB7F8500F6E73C /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
+				8CB1AB9523DB3F5D00E0973B /* ViewModels */,
+				8C4EDB1123CF810700BEEAC3 /* Services */,
+				8CC9F50F23CF4BC9005DEF4F /* UIKit */,
 				8CC9F50C23CF0131005DEF4F /* GithubAPIClient */,
 				8CFD07BA23CEE75900770F6E /* NewsAPIClient */,
 				FA173AC023AB7F8500F6E73C /* AppDelegate.swift */,
 				FA173AC223AB7F8500F6E73C /* SceneDelegate.swift */,
 				FA173AC423AB7F8500F6E73C /* ContentView.swift */,
 				FAFBC1E223ABC22A00D534A7 /* Histogram.swift */,
+				8CB1AB9B23DE3B6000E0973B /* Constants.swift */,
 				FA173AC623AB7F8800F6E73C /* Assets.xcassets */,
 				FA173ACB23AB7F8800F6E73C /* LaunchScreen.storyboard */,
 				FA173ACE23AB7F8800F6E73C /* Info.plist */,
@@ -113,6 +157,7 @@
 			packageProductDependencies = (
 				8CFD07BC23CEE78500770F6E /* NewsAPIClient */,
 				8CC9F50D23CF01C2005DEF4F /* GithubAPIClient */,
+				8CB1AB9923DE012600E0973B /* SwiftUICharts */,
 			);
 			productName = SegmentedControl;
 			productReference = FA173ABD23AB7F8500F6E73C /* SegmentedControl.app */;
@@ -142,6 +187,9 @@
 				Base,
 			);
 			mainGroup = FA173AB423AB7F8500F6E73C;
+			packageReferences = (
+				8CB1AB9823DE012600E0973B /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = FA173ABE23AB7F8500F6E73C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,10 +217,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB1AB9723DB411100E0973B /* ServiceLocator.swift in Sources */,
+				8C4EDB1023CF7FB500BEEAC3 /* NewsModel.swift in Sources */,
 				FAFBC1E323ABC22A00D534A7 /* Histogram.swift in Sources */,
 				FA173AC123AB7F8500F6E73C /* AppDelegate.swift in Sources */,
+				8C4EDB1323CF811B00BEEAC3 /* NewsService.swift in Sources */,
+				8CB1AB9C23DE3B6100E0973B /* Constants.swift in Sources */,
 				FA173AC323AB7F8500F6E73C /* SceneDelegate.swift in Sources */,
+				8CC9F51323CF4E0E005DEF4F /* ActivityIndicator.swift in Sources */,
 				FA173AC523AB7F8500F6E73C /* ContentView.swift in Sources */,
+				8CB1AB9423DB3E7600E0973B /* NewsServiceInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +421,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		8CB1AB9823DE012600E0973B /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		8CB1AB9923DE012600E0973B /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CB1AB9823DE012600E0973B /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		8CC9F50D23CF01C2005DEF4F /* GithubAPIClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GithubAPIClient;
