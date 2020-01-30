@@ -8,6 +8,7 @@
 
 import Foundation
 import NewsAPIClient
+import Combine
 
 final class NewsService: NewsServiceInput {
 	
@@ -15,33 +16,24 @@ final class NewsService: NewsServiceInput {
 		let apikey = "a9b0a70b40c7497fae2f6cff41567103"
 		let sortBy = "publishedAt"
 		let fromDate = "2020-01-01"
-		let group = DispatchGroup()
-		var pairs = [(String, Int)]()
 		
-		group.enter()
-		ArticlesAPI.everythingGet(q: Constants.apple, from: fromDate, sortBy: sortBy, apiKey: apikey) { (list, error) in
-			let count = list?.totalResults ?? 0
-			pairs.append((Constants.apple, count))
-			group.leave()
-		}
-		
-		group.enter()
-		ArticlesAPI.everythingGet(q: Constants.bitcoin, from: fromDate, sortBy: sortBy, apiKey: apikey) { (list, error) in
-			let count = list?.totalResults ?? 0
-			pairs.append((Constants.bitcoin, count))
-			group.leave()
-		}
-		
-		group.enter()
-		ArticlesAPI.everythingGet(q: Constants.nginx, from: fromDate, sortBy: sortBy, apiKey: apikey) { (list, error) in
-			let count = list?.totalResults ?? 0
-			pairs.append((Constants.nginx, count))
-			group.leave()
-		}
-		
-		group.notify(queue: .main) {
-			completion(pairs)
-		}
+		let future1 = Deferred{Future<(String, Int), Error> { promise in
+			ArticlesAPI.everythingGet(q: Constants.apple, from: fromDate, sortBy: sortBy, apiKey: apikey) { (list, error) in
+				let count = list?.totalResults ?? 0
+				print(count)
+				promise(.success((Constants.apple, count)))
+			}
+		}}
+		let future2 = Deferred{Future<(String, Int), Error> { promise in
+			ArticlesAPI.everythingGet(q: Constants.bitcoin, from: fromDate, sortBy: sortBy, apiKey: apikey) { (list, error) in
+				let count = list?.totalResults ?? 0
+				print(count)
+				promise(.success((Constants.bitcoin, count)))
+			}
+		}}
+
+		_ = Publishers.Zip(future1, future2)
+			.sink(receiveCompletion: {_ in}) {_ in print("Done")}
 	}
 	
 }
